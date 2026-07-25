@@ -29,7 +29,12 @@ export interface ResumeRecord {
  */
 export interface ResumeAnalysisRecord extends ResumeAnalysis {
   id: string;
-  resume_id: string;
+
   user_id: string;
+
+  resume_id: string | null;
+
+  resume_file_name: string;
+
   analyzed_at: string;
 }

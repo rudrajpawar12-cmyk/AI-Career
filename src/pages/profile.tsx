@@ -21,12 +21,12 @@ export default function Profile() {
     ...(profile?.skills_other ?? []),
   ];
 
-  const stats = [
-    { label: "Readiness Score", value: stats.readinessScore, icon: Target, color: "text-primary" },
-    { label: "GitHub Streak", value: "15", icon: Github, color: "text-orange-500" },
-    { label: "Certificates", value: mockCertificates.length, icon: Award, color: "text-green-500" },
-    { label: "Projects", value: mockProjects.length, icon: FolderGit2, color: "text-blue-500" },
-  ];
+ const profileStats = [
+  { label: "Readiness Score", value: mockStats.readinessScore, icon: Target, color: "text-primary" },
+  { label: "GitHub Streak", value: "15", icon: Github, color: "text-orange-500" },
+  { label: "Certificates", value: mockCertificates.length, icon: Award, color: "text-green-500" },
+  { label: "Projects", value: mockProjects.length, icon: FolderGit2, color: "text-blue-500" },
+];
 
   if (loading) {
     return (
@@ -95,7 +95,7 @@ export default function Profile() {
 
         {/* Stats Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map((stat, i) => (
+          {profileStats.map((stat, i) => (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} key={i} className="glass-card p-5 rounded-2xl flex items-center gap-4">
               <div className={`w-12 h-12 rounded-xl bg-card border border-white/5 flex items-center justify-center ${stat.color}`}>
                 <stat.icon className="w-6 h-6" />

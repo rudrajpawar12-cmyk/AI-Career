@@ -86,9 +86,8 @@ async function extractFromPdf(file: File): Promise<string> {
       const content = await page.getTextContent();
 
       const pageText = content.items
-        .filter(isTextItem)
-        .map((item) => item.str)
-        .join(" ");
+  .map((item) => ("str" in item ? item.str : ""))
+  .join(" ");
 
       pageTexts.push(pageText);
     }
